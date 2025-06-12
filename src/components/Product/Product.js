@@ -1,5 +1,4 @@
 import styles from './Product.module.scss';
-
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import ProductImage from '../ProductImage/ProductImage';
