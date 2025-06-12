@@ -8,8 +8,6 @@ const Product = ({ id, name, title, colors, sizes, basePrice }) => {
   const [currentColor, setCurrentColor] = useState(colors[0]);
   const [currentSize, setCurrentSize] = useState(sizes[0].name);
 
-  console.log(colors, sizes, name);
-
   return (
     <article className={styles.product}>
       <div className={styles.imageContainer}>
@@ -50,7 +48,10 @@ const Product = ({ id, name, title, colors, sizes, basePrice }) => {
                     type='button'
                     className={clsx(
                       styles[
-                        `color${color.charAt(0).toUpperCase() + color.slice(1)}`
+                        `color${
+                          color.charAt(0).toUpperCase() +
+                          color.slice(1).toLowerCase()
+                        }`
                       ],
                       {
                         [styles.active]: currentColor === color,
