@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const Product = ({ id, name, title, colors, sizes, basePrice }) => {
   const [currentColor] = useState(colors[0]);
-  const [currentSize] = useState(sizes[0].name);
+  const [currentSize, setCurrentSize] = useState(sizes[0].name);
 
   console.log(colors, sizes, name);
 
@@ -27,22 +27,18 @@ const Product = ({ id, name, title, colors, sizes, basePrice }) => {
         <form>
           <div className={styles.sizes}>
             <h3 className={styles.optionLabel}>Sizes</h3>
-            {/* TODO: use map to render sizes, and create component for sizes */}
             <ul className={styles.choices}>
-              <li>
-                <button type='button' className={styles.active}>
-                  S
-                </button>
-              </li>
-              <li>
-                <button type='button'>M</button>
-              </li>
-              <li>
-                <button type='button'>L</button>
-              </li>
-              <li>
-                <button type='button'>XL</button>
-              </li>
+              {sizes.map((size) => (
+                <li key={size.name}>
+                  <button
+                    type='button'
+                    className={currentSize === size.name ? styles.active : ''}
+                    onClick={() => setCurrentSize(size.name)}
+                  >
+                    {size.name}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
           <div className={styles.colors}>
