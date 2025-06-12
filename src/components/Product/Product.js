@@ -2,14 +2,15 @@ import styles from './Product.module.scss';
 import clsx from 'clsx';
 import Button from '../Button/Button';
 
-const Product = props => {
+const Product = (props) => {
   return (
     <article className={styles.product}>
       <div className={styles.imageContainer}>
-        <img 
+        <img
           className={styles.image}
-          alt="Kodilla shirt"
-          src={`${process.env.PUBLIC_URL}/images/products/shirt-kodilla--black.jpg`} />
+          alt='Kodilla shirt'
+          src={`${process.env.PUBLIC_URL}/images/products/shirt-kodilla--black.jpg`}
+        />
       </div>
       <div>
         <header>
@@ -19,28 +20,49 @@ const Product = props => {
         <form>
           <div className={styles.sizes}>
             <h3 className={styles.optionLabel}>Sizes</h3>
+            {/* TODO: use map to render sizes, and create component for sizes */}
             <ul className={styles.choices}>
-              <li><button type="button" className={styles.active}>S</button></li>
-              <li><button type="button">M</button></li>
-              <li><button type="button">L</button></li>
-              <li><button type="button">XL</button></li>
+              <li>
+                <button type='button' className={styles.active}>
+                  S
+                </button>
+              </li>
+              <li>
+                <button type='button'>M</button>
+              </li>
+              <li>
+                <button type='button'>L</button>
+              </li>
+              <li>
+                <button type='button'>XL</button>
+              </li>
             </ul>
           </div>
           <div className={styles.colors}>
             <h3 className={styles.optionLabel}>Colors</h3>
+            {/* TODO: use map to render colors, and create component for colors */}
             <ul className={styles.choices}>
-              <li><button type="button" className={clsx(styles.colorBlack, styles.active)} /></li>
-              <li><button type="button" className={clsx(styles.colorRed)} /></li>
-              <li><button type="button" className={clsx(styles.colorWhite)} /></li>
+              <li>
+                <button
+                  type='button'
+                  className={clsx(styles.colorBlack, styles.active)}
+                />
+              </li>
+              <li>
+                <button type='button' className={clsx(styles.colorRed)} />
+              </li>
+              <li>
+                <button type='button' className={clsx(styles.colorWhite)} />
+              </li>
             </ul>
           </div>
           <Button className={styles.button}>
-            <span className="fa fa-shopping-cart" />
+            <span className='fa fa-shopping-cart' />
           </Button>
         </form>
       </div>
     </article>
-  )
+  );
 };
 
 export default Product;
