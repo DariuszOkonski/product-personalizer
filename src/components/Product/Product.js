@@ -2,7 +2,9 @@ import styles from './Product.module.scss';
 import clsx from 'clsx';
 import Button from '../Button/Button';
 
-const Product = (props) => {
+const Product = ({ id, name, title, colors, sizes, basePrice }) => {
+  console.log(id, name, title, colors, sizes, basePrice);
+
   return (
     <article className={styles.product}>
       <div className={styles.imageContainer}>
