@@ -34,7 +34,7 @@ const Product = ({ id, name, title, colors, sizes, basePrice }) => {
                 <li key={size.name}>
                   <button
                     type='button'
-                    className={currentSize === size.name ? styles.active : ''}
+                    className={clsx(currentSize === size.name && styles.active)}
                     onClick={() => setCurrentSize(size.name)}
                   >
                     {size.name}
@@ -52,9 +52,7 @@ const Product = ({ id, name, title, colors, sizes, basePrice }) => {
                     type='button'
                     className={clsx(
                       styles[`color${prepareColorClassName(color)}`],
-                      {
-                        [styles.active]: currentColor === color,
-                      }
+                      currentColor === color && styles.active
                     )}
                     onClick={() => setCurrentColor(color)}
                   />
