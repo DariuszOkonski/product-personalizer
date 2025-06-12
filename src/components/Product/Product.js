@@ -9,7 +9,7 @@ const Product = ({ id, name, title, colors, sizes, basePrice }) => {
       <div className={styles.imageContainer}>
         <img
           className={styles.image}
-          alt='Kodilla shirt'
+          alt={title}
           src={`${process.env.PUBLIC_URL}/images/products/shirt-kodilla--black.jpg`}
         />
       </div>
