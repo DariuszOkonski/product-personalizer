@@ -1,6 +1,7 @@
 import styles from './ProductForm.module.scss';
 import clsx from 'clsx';
 import Button from '../Button/Button';
+import OptionSize from '../OptionSize/OptionSize';
 
 const prepareColorClassName = (color) => {
   return color.charAt(0).toUpperCase() + color.slice(1).toLowerCase();
@@ -17,22 +18,12 @@ const ProductForm = ({
 }) => {
   return (
     <form onSubmit={handleSubmit}>
-      <div className={styles.sizes}>
-        <h3 className={styles.optionLabel}>Sizes</h3>
-        <ul className={styles.choices}>
-          {sizes.map((size) => (
-            <li key={size.name}>
-              <button
-                type='button'
-                className={clsx(currentSize === size.name && styles.active)}
-                onClick={() => setCurrentSize(size.name)}
-              >
-                {size.name}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <OptionSize
+        sizes={sizes}
+        currentSize={currentSize}
+        setCurrentSize={setCurrentSize}
+      />
+
       <div className={styles.colors}>
         <h3 className={styles.optionLabel}>Colors</h3>
         <ul className={styles.choices}>
@@ -50,6 +41,7 @@ const ProductForm = ({
           ))}
         </ul>
       </div>
+
       <Button className={styles.button}>
         <span className='fa fa-shopping-cart' />
       </Button>
