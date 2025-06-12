@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 const Product = ({ id, name, title, colors, sizes, basePrice }) => {
-  const [currentColor] = useState(colors[0]);
+  const [currentColor, setCurrentColor] = useState(colors[0]);
   const [currentSize, setCurrentSize] = useState(sizes[0].name);
 
   console.log(colors, sizes, name);
@@ -43,20 +43,23 @@ const Product = ({ id, name, title, colors, sizes, basePrice }) => {
           </div>
           <div className={styles.colors}>
             <h3 className={styles.optionLabel}>Colors</h3>
-            {/* TODO: use map to render colors, and create component for colors */}
             <ul className={styles.choices}>
-              <li>
-                <button
-                  type='button'
-                  className={clsx(styles.colorBlack, styles.active)}
-                />
-              </li>
-              <li>
-                <button type='button' className={clsx(styles.colorRed)} />
-              </li>
-              <li>
-                <button type='button' className={clsx(styles.colorWhite)} />
-              </li>
+              {colors.map((color) => (
+                <li key={color}>
+                  <button
+                    type='button'
+                    className={clsx(
+                      styles[
+                        `color${color.charAt(0).toUpperCase() + color.slice(1)}`
+                      ],
+                      {
+                        [styles.active]: currentColor === color,
+                      }
+                    )}
+                    onClick={() => setCurrentColor(color)}
+                  />
+                </li>
+              ))}
             </ul>
           </div>
           <Button className={styles.button}>
