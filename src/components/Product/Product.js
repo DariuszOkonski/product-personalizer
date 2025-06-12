@@ -5,7 +5,7 @@ import { useState } from 'react';
 import ProductImage from '../ProductImage/ProductImage';
 import ProductForm from '../ProductForm/ProductForm';
 
-const Product = ({ id, name, title, colors, sizes, basePrice }) => {
+const Product = ({ name, title, colors, sizes, basePrice }) => {
   const [currentColor, setCurrentColor] = useState(colors[0]);
   const [currentSize, setCurrentSize] = useState(sizes[0].name);
 
