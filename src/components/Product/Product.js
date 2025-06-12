@@ -4,8 +4,6 @@ import Button from '../Button/Button';
 import PropTypes from 'prop-types';
 
 const Product = ({ id, name, title, colors, sizes, basePrice }) => {
-  console.log(id, name, title, colors, sizes, basePrice);
-
   return (
     <article className={styles.product}>
       <div className={styles.imageContainer}>
@@ -17,8 +15,8 @@ const Product = ({ id, name, title, colors, sizes, basePrice }) => {
       </div>
       <div>
         <header>
-          <h2 className={styles.name}>Kodilla shirt</h2>
-          <span className={styles.price}>Price: 20$</span>
+          <h2 className={styles.name}>{title}</h2>
+          <span className={styles.price}>Price: {basePrice}$</span>
         </header>
         <form>
           <div className={styles.sizes}>
