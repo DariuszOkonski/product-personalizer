@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Button from '../Button/Button';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import ProductImage from '../ProductImage/ProductImage';
 
 const prepareColorClassName = (color) => {
   return color.charAt(0).toUpperCase() + color.slice(1).toLowerCase();
@@ -29,13 +30,7 @@ const Product = ({ id, name, title, colors, sizes, basePrice }) => {
 
   return (
     <article className={styles.product}>
-      <div className={styles.imageContainer}>
-        <img
-          className={styles.image}
-          alt={title}
-          src={`${process.env.PUBLIC_URL}/images/products/shirt-${name}--${currentColor}.jpg`}
-        />
-      </div>
+      <ProductImage title={title} name={name} currentColor={currentColor} />
       <div>
         <header>
           <h2 className={styles.name}>{title}</h2>
