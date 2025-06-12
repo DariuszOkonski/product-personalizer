@@ -4,6 +4,10 @@ import Button from '../Button/Button';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
+const prepareColorClassName = (color) => {
+  return color.charAt(0).toUpperCase() + color.slice(1).toLowerCase();
+};
+
 const Product = ({ id, name, title, colors, sizes, basePrice }) => {
   const [currentColor, setCurrentColor] = useState(colors[0]);
   const [currentSize, setCurrentSize] = useState(sizes[0].name);
@@ -47,12 +51,7 @@ const Product = ({ id, name, title, colors, sizes, basePrice }) => {
                   <button
                     type='button'
                     className={clsx(
-                      styles[
-                        `color${
-                          color.charAt(0).toUpperCase() +
-                          color.slice(1).toLowerCase()
-                        }`
-                      ],
+                      styles[`color${prepareColorClassName(color)}`],
                       {
                         [styles.active]: currentColor === color,
                       }
